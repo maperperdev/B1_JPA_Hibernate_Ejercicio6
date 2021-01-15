@@ -35,9 +35,27 @@ public class Test2_Consultas_JQPL {
 		 * Ejecución de sentencias JPQL (con createQuery) con parámetros dinánmicos
 		 */
 		
-		System.out.println("** Ejercicio1 CONSULTAS: MOSTRAR todos los proyed del depto 1");
+		System.out.println("** Ejercicio2 CONSULTAS: MOSTRAR todos los proyed del depto 1");
 		System.out.println("****                                          ******");
 		System.out.println(pyf.buscarProyectoDeDepto(1));
+		
+		
+		/**
+		 * Ejercicio 3
+		 */
+		
+		System.out.println("** Ejercicio3 CONSULTAS: MOSTRAR todos los empleado del depto1");
+		System.out.println("****                                          ******");
+		//con notación punto
+		
+		//con consultas anidadas
+		
+		System.out.println(pyf.buscarProyectoDeDepto(1));
+		System.out.println(pyf.buscarProyectoDeDepto(1));
+		
+		
+		
+		
 		
 		
 	}
