@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import entidades.Departamento;
+import entidades.Empleado;
 
 
 
@@ -28,7 +29,10 @@ public List<Departamento> mostrarTodos() {
 }
 
 
-
+public List<Empleado> buscarEmpleadosDeDpto(Integer dep) {
+	List<Empleado> q = this.getEm().find(Departamento.class, dep).getEmpleados();
+	return q;
+}
 
 }
 

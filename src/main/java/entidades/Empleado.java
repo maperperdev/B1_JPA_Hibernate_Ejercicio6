@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -38,8 +39,12 @@ import javax.persistence.UniqueConstraint;
 })
 
 //,@UniqueConstraint(columnNames = "CODDEPTO_FK")
+//@NamedQuery import del persistence import javax.persistence.NamedQuery;
+@NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e")
 public class Empleado implements Serializable{
 	private static final long serialVersionUID = 1L;
+	public static final String BUSCAR_TODOS_EMPLEADOS = "Empleado.findAll";
+	
 	@Id
 	@Column(name = "CODEMPLEADO", unique = true, nullable = false)
 	private String codEmpleado;

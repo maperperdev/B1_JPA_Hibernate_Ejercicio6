@@ -27,7 +27,11 @@ public List<Empleado> mostrarTodos() {
 	return q.getResultList();
 }
 
-
+public int mostrarCodigoMaximoMinimo() {
+	Query q = this.getEm().createQuery("SELECT MAX(p.codEmpleado))"
+			+ " FROM Empleado as p");
+	return (int) q.getSingleResult();
+}
 
 
 }

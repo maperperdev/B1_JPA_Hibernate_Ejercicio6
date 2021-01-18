@@ -10,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -20,8 +21,18 @@ import javax.persistence.UniqueConstraint;
 @Table(name="DEPARTAMENTO", catalog = "ejercicio6", uniqueConstraints = {
 		@UniqueConstraint(columnNames = "CODDEPT")
 })
+
+@NamedQueries({
+	@NamedQuery(name = Departamento.BUSCAR_CODDEPT,
+			query = "SELECT d FROM Departamento d where d.codDept = :cod"),
+	@NamedQuery(name = Departamento.ORDENAR_DESC_NOMBRE,
+			query = "SELECT d FROM Departamento d order by d.dnombre desc")
+})
 public class Departamento implements Serializable{
 	private static final long serialVersionUID = 1L;
+	public static final String BUSCAR_CODDEPT = "Departamento.BUSCAR_CODDEPT";
+	public static final String ORDENAR_DESC_NOMBRE = "Departamento.ORDENAR_DESC_NOMBRE";
+	
 	@Id
 	@Column(name = "CODDEPT", unique = true, nullable = false)
 	private Integer codDept;

@@ -20,8 +20,9 @@ public class ProyectoFacadeImpl extends AbstractFacadeJPAImpl<Proyecto> implemen
 		TypedQuery<Proyecto> q = this.getEm().createQuery("SELECT p FROM Proyecto AS p", Proyecto.class);
 		return q.getResultList();
 	}
-
-	public List<Proyecto> buscarProyectoDeDepto(int dep) {
+	
+	@Override
+	public List<Proyecto> buscarProyectosDeDepto(Integer dep) {
 		TypedQuery<Proyecto> q = this.getEm()
 				.createQuery("SELECT p FROM Proyecto p WHERE p.codDept.codDept =:seleccionado", Proyecto.class);
 		q.setParameter("seleccionado", dep);
@@ -45,7 +46,6 @@ public class ProyectoFacadeImpl extends AbstractFacadeJPAImpl<Proyecto> implemen
 				+ "ON p.codDept = d.codDept WHERE d.dnombre = :seleccionado", Proyecto.class);
 		q.setParameter("seleccionado", nombreDept);
 		return q.getResultList();
-		
 	}
 	
 	//Otra forma con notación punto
@@ -56,4 +56,5 @@ public class ProyectoFacadeImpl extends AbstractFacadeJPAImpl<Proyecto> implemen
 		q.setParameter("seleccionado", nombreDept);
 		return q.getResultList();
 	}
+
 }
